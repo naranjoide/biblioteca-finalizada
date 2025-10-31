@@ -1,0 +1,89 @@
+/* Contenedor principal: todo el cuadro */
+.page-container {
+    display: flex;                  /* columnas lado a lado */
+    max-width: 800px;               /* ancho máximo del cuadro */
+    margin: 50px auto;              /* centra horizontalmente y espacio arriba */
+    background-color: white;        /* fondo del cuadro */
+    border-radius: 10px;            /* bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra suave */
+    overflow: hidden;               /* recorta bordes de imagen */
+}
+
+/* Columna izquierda: imagen representativa */
+.left-side {
+    flex: 1;                        /* ocupa la mitad del cuadro */
+    background-color: #f0f4f8;      /* tono suave */
+    display: flex;
+    justify-content: center;        /* centra horizontalmente */
+    align-items: center;            /* centra verticalmente */
+}
+
+.left-side img {
+    width: 100%;                    /* ocupa todo el ancho de la columna */
+    height: auto;                   /* mantiene proporción */
+}
+
+/* Columna derecha: formulario */
+.right-side {
+    flex: 1;                        /* ocupa la otra mitad */
+    display: flex;
+    justify-content: center;        /* centra horizontalmente */
+    align-items: center;            /* centra verticalmente */
+}
+
+.container {
+    padding: 40px 30px;             /* espacio interno del formulario */
+    display: flex;
+    flex-direction: column;         /* inputs de arriba hacia abajo */
+    width: 100%;                    /* ocupa todo el ancho de su columna */
+    max-width: 400px;               /* ancho máximo del formulario */
+    text-align: center;             /* centra títulos y texto */
+}
+
+/* Estilo de inputs */
+input[type="text"],
+input[type="email"] {
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #536dfe;
+    box-shadow: 0 0 8px rgba(83, 109, 254, 0.4);
+}
+
+/* Botón de registro */
+button {
+    background-color: #38980c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3c51e0;
+}
+
+/* Link al login */
+a {
+    text-decoration: none;
+    color: #536dfe;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
