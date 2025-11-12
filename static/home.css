@@ -1,0 +1,136 @@
+/* Estilos para la página de inicio, coherentes con global.css y register.css */
+:root{
+    --bg: #7ab9e9;
+    --card-bg: #ffffff;
+    --accent: #536dfe;
+    --primary: #38980c;
+    --muted: #6b7280;
+    --radius: 12px;
+}
+
+/* Reset local (respeta global.css) */
+body, html{
+    height: 100%;
+}
+
+.site-header{
+    width: 100%;
+    background: linear-gradient(90deg, rgba(83,109,254,0.12), rgba(58,184,255,0.06));
+    padding: 18px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+}
+
+.container-header{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 1.25rem;
+    color: #0b2340;
+    font-weight: 700;
+}
+
+nav a.btn-logout{
+    background: var(--primary);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.main-content{
+    max-width: 1100px;
+    margin: 110px auto 40px; /* deja espacio por header fijo */
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    align-items: start;
+}
+
+.welcome-card{
+    background: var(--card-bg);
+    padding: 28px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(11,35,64,0.06);
+}
+
+.welcome-card h2{
+    margin-bottom: 8px;
+}
+
+.lead{
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.actions{
+    display: flex;
+    gap: 12px;
+}
+
+.btn{
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn.ghost{
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(83,109,254,0.12);
+}
+
+.quick-stats{
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+}
+
+.stat{
+    background: linear-gradient(180deg, rgba(83,109,254,0.04), rgba(58,184,255,0.02));
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-number{
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0b2340;
+}
+
+.stat-label{
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.site-footer{
+    max-width: 1100px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
+    color: var(--muted);
+    text-align: center;
+}
+
+@media (max-width: 880px){
+    .main-content{
+        grid-template-columns: 1fr;
+    }
+
+    .quick-stats{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
