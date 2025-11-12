@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inicio - Biblioteca</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='ladoizquierdo.png') }}" />
 </head>
 <body>
     <header class="site-header">
-        <div class="container-header">
-            <h1 class="logo">Biblioteca</h1>
-            <nav>
-                <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar sesión</a>
-            </nav>
+        <div class="header-inner header-grid top-bar">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='ladoizquierdo.png') }}" alt="Biblioteca" class="logo">
+                <h1 class="brand-title">Biblioteca</h1>
+            </div>
+
+            <div></div> <!-- espacio central vacío en la grid para mantener layout -->
+
+            <div class="user-actions">
+                <span class="user-greet">Hola, <strong>{{ user }}</strong></span>
+                <a class="nav-link logout" href="{{ url_for('logout') }}">Cerrar sesión</a>
+            </div>
         </div>
+
+        <!-- Sección simple y centrada con los nombres de las secciones (sin enlaces) -->
+        <!-- Están en el main para que no sean fixed y queden claramente aparte del header -->
     </header>
 
     <main class="main-content">
-        <section class="welcome-card">
-            <h2>Bienvenido, {{ user }}</h2>
-            <p class="lead">Accede a tu panel para buscar libros, ver préstamos y gestionar tu cuenta.</p>
-            <div class="actions">
-                <a href="#" class="btn">Buscar libros</a>
-                <a href="{{ url_for('logout') }}" class="btn ghost">Cerrar sesión</a>
+        <div class="section-tabs">
+            <div class="tab">Libros</div>
+            <div class="tab">Usuarios</div>
+            <div class="tab">Préstamos</div>
+        </div>
+
+        <section class="overview">
+            <div class="card">
+                <h3>Libros</h3>
+                <p>Lista y busca libros por título o autor.</p>
+            </div>
+            <div class="card">
+                <h3>Usuarios</h3>
+                <p>Registra y administra usuarios.</p>
+            </div>
+            <div class="card">
+                <h3>Préstamos</h3>
+                <p>Registra préstamos y devoluciones.</p>
             </div>
         </section>
 
-        <section class="quick-stats" aria-hidden="true">
-            <div class="stat">
-                <div class="stat-number">—</div>
-                <div class="stat-label">Libros</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">—</div>
-                <div class="stat-label">Préstamos</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">—</div>
-                <div class="stat-label">Usuarios</div>
+        <section class="welcome-card">
+            <h2>Bienvenido a la Biblioteca</h2>
+            <p>Gestiona libros, usuarios y préstamos de manera sencilla.</p>
+            <div class="actions">
+                <a class="btn" href="{{ url_for('libros') }}">Ver libros</a>
+                <a class="btn outline" href="{{ url_for('register') }}">Registrar usuario</a>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>© 2025 Biblioteca</p>
-    </footer>
 
 </body>
 </html>

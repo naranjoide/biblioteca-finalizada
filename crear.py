@@ -56,7 +56,7 @@ def insertar_libros_ejemplo():
         return  
 
     libros = [
-        ("Cien años de soledad", "Gabriel García Márquez", 1967, "Realismo mágico", 1),
+        ("Tonchy te manda un beso", "GG", 1967, "Realismo mágico", 1),
         ("Los tres chanchitos", "Joseph Jacobs", 1890, "Infantil", 0),
         ("Don Quijote de la Mancha", "Miguel de Cervantes", 1605, "Novela", 1),
         ("Cristian aprobame", "Agustin Perez", 2008, "Ciencia ficción", 0),
@@ -82,7 +82,7 @@ def insertar_usuarios_ejemplo():
     usuarios = [
     ("agustin", "Perez", generate_password_hash("1234"), "agustin@gmail.com"),
     ("ciro", "chialvo", generate_password_hash("abcd"), "ciro@gmail.com"),
-    ("juan", "massagli", generate_password_hash("qwerty"), "juan@gmail.com"),
+    ("gaston", "giordano", generate_password_hash("qwerty"), "cristianteasesinare@gmail.com"),
     ("manuel", "gomez", generate_password_hash("pass"), "manu@gmail.com"),
     ("cristian", "carle", generate_password_hash("hola"), "cris@gmail.com")
 ]

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Libros - Biblioteca</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner header-grid top-bar">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='ladoizquierdo.png') }}" alt="Biblioteca" class="logo">
+                <h1 class="brand-title">Biblioteca - Libros</h1>
+            </div>
+            <div></div>
+            <div class="user-actions">
+                <span class="user-greet">Hola, <strong>{{ user }}</strong></span>
+                <a class="nav-link logout" href="{{ url_for('logout') }}">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="overview">
+            <div class="card" style="flex:1 1 60%;">
+                <h3>Buscar libros</h3>
+                <form method="GET" action="{{ url_for('libros') }}">
+                    <input type="text" name="q" placeholder="Título o autor" value="{{ q }}">
+                    <button type="submit">Buscar</button>
+                </form>
+
+                <h3>Listado de libros</h3>
+                <ul>
+                    {% for b in libros %}
+                        <li>[{{ b.id }}] <strong>{{ b.titulo }}</strong> - {{ b.autor }} ({{ b['año'] }}) - {{ b.genero }} - {% if b.disponibilidad == 1 %}Disponible{% else %}Prestado{% endif %}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Agregar libro</h3>
+                <form method="POST" action="{{ url_for('add_book_route') }}">
+                    <input type="text" name="titulo" placeholder="Título" required>
+                    <input type="text" name="autor" placeholder="Autor" required>
+                    <input type="text" name="año" placeholder="Año">
+                    <input type="text" name="genero" placeholder="Género" required>
+                    <button type="submit">Agregar libro</button>
+                </form>
+
+            </div>
+
+            <div class="card" style="flex:1 1 35%;">
+                <h3>Préstamos activos</h3>
+                <ul>
+                    {% for p in prestamos %}
+                        <li>[Prestamo {{ p.prestamo_id }}] {{ p.libro_titulo }} - {{ p.usuario_nombre }} {{ p.usuario_apellido }} ({{ p.id_usuario }}) - Fecha: {{ p.fecha_prestamo }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Registrar préstamo</h3>
+                <form method="POST" action="{{ url_for('create_loan_route') }}">
+                    <input type="number" name="id_libro" placeholder="ID libro" required>
+                    <input type="number" name="id_usuario" placeholder="ID usuario" required>
+                    <button type="submit">Registrar préstamo</button>
+                </form>
+
+                <h3>Registrar devolución</h3>
+                <form method="POST" action="{{ url_for('return_loan_route') }}">
+                    <input type="number" name="prestamo_id" placeholder="ID préstamo" required>
+                    <button type="submit">Registrar devolución</button>
+                </form>
+
+            </div>
+        </section>
+    </main>
+</body>
+</html>
