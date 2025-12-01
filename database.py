@@ -1,7 +1,4 @@
-"""Módulo de acceso a la base de datos para el proyecto Biblioteca.
 
-Contiene funciones mínimas necesarias para Corte 1 y Corte 2.
-"""
 import sqlite3
 from typing import List, Dict, Optional
 from werkzeug.security import generate_password_hash
